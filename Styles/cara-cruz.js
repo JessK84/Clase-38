@@ -1,35 +1,52 @@
 // Crear un programa que permita escoger entre cara o cruz. El programa luego debe generar un resultado aleatorio y mostrar si se acertó o no. El programa debe mostrar en cada vuelta cuántas rondas seguidas acertadas van, y si en algún momento se erra, reiniciar el contador a 0. También debe llevar una cuenta de la cantidad máxima de rondas seguidas que se hizo sin errar. Cuando se ingresa la palabra SALIR, en vez de CARA o CRUZ, el programa debe mostrar la cantidad máxima de rondas seguidas acertadas junto a un mensaje de despedida, y terminar su ejecución.
   
+let jugador = prompt(`Vamos a comenzar a jugar.\n Tenés que elegir: cara o cruz`);
+let computadora ="";
+let numeroMayor=0;
+let rondas=0;
 
-
-let computadora = "";
-let usuario = "";
-let resultado = 0;
-let resultadoMayor = 0;
-
-usuario = prompt("Elija cara o cruz o salir");
-
-while (usuario != "salir") {
-    computadora = Math.round(Math.random());
-    computadora === 0 ? computadora = "cara" : computadora = "cruz";
-
-    if (computadora === usuario) {
-        resultado++;
-        usuario = prompt(`Ganaste! Vueltas consecutivas ganadas: ${resultado}
-        Elija cara o cruz o salir`);
-    } else {
-        resultado = 0;
-        usuario = prompt(`Perdiste! Vueltas consecutivas ganadas: ${resultado}
-        Elija cara o cruz o salir`);
+while (jugador !== "salir") { 
+        let caraCruz = Math.ceil(Math.random() *2); // random de palabras
+    if (caraCruz === 1) {
+        computadora ="cara"
+    } else if (caraCruz === 2) {
+        computadora = "cruz";
     }
-
-    if (resultado > resultadoMayor) {
-        resultadoMayor = resultado;
-    }
-
-    if (usuario === "salir") {
-        alert(`Máxima cantidad de vueltas consecutivas ganadas: ${resultadoMayor}
+    if (jugador === computadora) {
+        rondas++;
+        jugador = prompt(`Acertaste!!! llevas en total ${rondas} rondas ganadas\nElegí: cara o cruz?`);
+    } else if (jugador !== computadora) {
+        rondas=0;
+        jugador = prompt(`Erraste!!! Estás en ${rondas}.\n Podés elegír: cara o cruz\nO salir del programa`);
+    } 
+    if (rondas >numeroMayor) {
+        numeroMayor= rondas;
+    } else if (jugador=== "salir"){
+        alert(`La mayor cantidad de veces que ganaste es: ${numeroMayor}
         Adios`);
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

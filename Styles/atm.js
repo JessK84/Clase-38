@@ -12,6 +12,43 @@
 //  - Consultado saldo: $3400
 //  - Depositado: $100
 
+
+
+const dineroInicial = 8325;
+let operaciones =prompt("Ud puede: \n-Extraer dinero \n-Depositar \n-Consultar saldo \n-Ver últimos movimientos");
+let saldo ="";
+let extraccion ="";
+let mensaje = `\nDesea realizar otra operación \n Ud puede: \n-Extraer dinero \n-Depositar \n-Consultar saldo \n-Ver últimos movimientos \n-Salir`
+
+let deposito ="";
+
+while (operaciones !== "salir") {
+if ("extraer") {
+        extraccion = Number(prompt(`Dispone de $${dineroInicial} ¿Cuánto dinero desea extraer?`));
+        saldo = dineroInicial -extraccion;
+        operaciones = prompt(`Operación exitosa. Su saldo actual es $${saldo} ` + mensaje);
+}
+    else if ("depositar") {
+        deposito = Number(prompt(`Dispone de $${dineroInicial} ¿Cuánto dinero desea depositar?`));
+        saldo = dineroInicial + deposito;
+        operaciones = prompt(`Operación exitosa. Su saldo actual es $${saldo} ` + mensaje);
+}
+
+    if ("últimos movimientos") {
+        alert(`Tus movimientos fueron: ${movimientos} bla bla bla`);
+        operaciones = prompt(mensaje);
+     }
+    else if("saldo") {
+        alert(`Tu saldo actual es $${dineroInicial}`)
+        operaciones= prompt(mensaje);   
+    }
+}
+
+alert("Muchas gracias por confiar en nuestros servicios") //MENSAJE DE SALIDA
+
+
+
+
 // const dineroInicial = 8325; // dinero inicial
 // let operaciones = prompt("Ud puede: \n-Extraer dinero \n-Depositar \n-Consultar saldo \n-Ver últimos movimientos");
 // //Menú de opciones
@@ -45,39 +82,3 @@
 //     }
 // }
 // alert("Muchas gracias por confiar en nuestros servicios") //MENSAJE DE SALIDA
-
-
-const dineroInicial = 8325;
-let operaciones =prompt("Ud puede: \n-Extraer dinero \n-Depositar \n-Consultar saldo \n-Ver últimos movimientos");
-let saldo ="";
-let extraccion ="";
-let mensaje = `\nDesea realizar otra operación \n Ud puede: \n-Extraer dinero \n-Depositar \n-Consultar saldo \n-Ver últimos movimientos \n-Salir`
-let movimientos =+ operaciones;
-let deposito ="";
-
-while (operaciones !== "salir") {
-switch (operaciones) {
-    case "extraer":
-        extraccion = Number(prompt(`Dispone de $${dineroInicial} ¿Cuánto dinero desea extraer?`));
-        saldo = dineroInicial -extraccion;
-        operaciones = prompt(`Operación exitosa. Su saldo actual es $${saldo} ` + mensaje);
-        movimientos+=operaciones;
-        break;
-    case "depositar":
-        deposito = Number(prompt(`Dispone de $${dineroInicial} ¿Cuánto dinero desea depositar?`));
-        saldo = dineroInicial + deposito;
-        operaciones = prompt(`Operación exitosa. Su saldo actual es $${saldo} ` + mensaje);
-        movimientos+=operaciones;
-        break;
-    case "últimos movimientos":
-        sinMovimientos = prompt(`Tus movimientos fueron: ${movimientos} bla bla bla`);
-        operaciones = prompt(mensaje);
-       break;
-    case "saldo":
-        saldo = alert(`Tu saldo actual es $${dineroInicial}`)
-        operaciones= prompt(mensaje);
-        break;
-        default:      
-    }
-}
-alert("Muchas gracias por confiar en nuestros servicios") //MENSAJE DE SALIDA

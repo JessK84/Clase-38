@@ -7,13 +7,12 @@ let numeroMenor ="";
 let numeroUsuario = Number(prompt("Elija un número entre 1 y 10"));
 
 while (numeroUsuario !== computadora) { // mietras ambos indicadores sean diferentes va a seguir funcionando el programa
-    computadora = Math.ceil(Math.random()*10);// match.ceil porque queremos que comience de 1 y no de 0 a 9.
+    computadora = Math.round(Math.random()*10);// match.ceil porque queremos que comience de 1 y no de 0 a 9.
     computadora ++; // las vueltas que va a ejecutar el programa hasta coincidir con la condición de salida
     if (numeroUsuario < computadora) {
         numeroMayor = prompt(`Tu número es menor, elige otro número`);
     } else if (numeroUsuario > computadora){
         numeroMenor = prompt(`Tu número es mayor, elige otro número`);
-    } else if (numeroUsuario === computadora ) {
-        alert(`Tu número ${numeroUsuario} coincide con el ${computadora} que eligió el genio detrás de la pantalla `)
-    }  
+    } 
 }
+alert(`Tu número es ${numeroUsuario} y coincide con el ${computadora} que eligió la computadora`)
