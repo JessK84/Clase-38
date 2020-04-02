@@ -3,25 +3,70 @@
 
 
 
-let palabra ="";
-let selectorPalabras = Math.ceil(Math.random() *3); // random de palabras
-if (selectorPalabras === 1) {
-    palabra ="Ottawa"
-} else if (selectorPalabras === 2) {
-    palabra = "Toronto";
-} else if (selectorPalabras === 3) {
-    palabra = "Montreal";
+// let palabra ="";
+// let selectorPalabras = Math.ceil(Math.random() *3); // random de palabras
+// if (selectorPalabras === 1) {
+//     palabra ="Ottawa"
+// } else if (selectorPalabras === 2) {
+//     palabra = "Toronto";
+// } else if (selectorPalabras === 3) {
+//     palabra = "Montreal";
+// }
+// palabra=palabra.split("")
+
+// let ayuda="";
+// vueltas =1;
+
+
+// while(!palabra) {
+//     palabra =prompt(`Ingresá una ciudad de Canadá`)   
+//             vueltas++
+//             // alert(`La primera letra comienza con ${palabra[0]}`);     
+//             palabra = prompt(`La primera letra es: ${palabra[0]} ¿ Ya sabés cuál es?`)
+          
+//         alert(`Tu ciudad es ${palabra} Adivinaste!`)
+// }
+// // palabra.joint()
+
+
+const palabras = ["programacion", "web", "javascript", "html", "computadora", "codigo"];
+
+// defino la palabra random a adivinar
+let adivina = palabras[Math.round(Math.random() * (palabras.length - 1))]
+
+
+// la separo en letras
+let adivinaLetra = adivina.split('');
+
+// defino i para usarlo en el while
+let i = 0;
+let resultado = "";
+
+// Defino el mensaje de sugerencia
+let sugerencia = "Sugerencia: "
+
+
+// pido primer intento
+let usuarioAdivina = prompt("Adivine la palabra");
+
+// bucle para segundo intento +
+while (adivina != usuarioAdivina && resultado != "perdiste") {
+
+    // le voy agregando desde la primer letra de adivinaLetra
+    sugerencia += adivinaLetra[i];
+
+    // sumo 1 a i
+    i++;
+
+    usuarioAdivina = prompt(`Intente nuevamente
+    ${sugerencia}`);
+    if (i === (adivinaLetra.length - 1) && usuarioAdivina != adivina) {
+        resultado = "perdiste";
+    }
 }
 
-let ciudad ="";
-let ayuda="";
-
-while(ciudad !== palabra) {
-        ciudad =prompt(`Ingresá una ciudad de Canadá`)   
-        if  (palabra !== ciudad){   
-            // alert(`La primera letra comienza con ${palabra[0]}`);     
-            ciudad += prompt(`Las siguientes letras son  ${palabra[0]}.¿ Ya sabés cuál es?`)
-        }  
-        
+if (resultado === "perdiste") {
+    alert("Ha perdido. La palabra era " + adivina);
+} else if (adivina == usuarioAdivina) {
+    alert("Ganaste!!!");
 }
-alert(`Tu ciudad es ${palabra}. Adivinaste!`)

@@ -1,68 +1,67 @@
-let selectorColor = Math.random();
-console.log(selectorColor);
-let color = '';
-if (selectorColor <= 0.25) {
-  color = 'rojo';
-} else if (selectorColor > 0.25 && selectorColor <= 0.5) {
-  color = 'verde';
-} else if (selectorColor > 0.5 && selectorColor <= 0.75) {
-  color = 'amarillo';
+// El programa debe mostrar una secuencia de colores, agregando por cada ronda que pase otro color más. 
+
+// El usuario debe ingresar los colores de la secuencia uno por uno. Si erra la secuencia (es decir, si ingresa algún color mal), el programa debe terminar. 
+
+
+// Hay dos variantes posibles: 
+
+// secuencia de colores // Los colores posibles son: rojo, azul, verde y amarillo. 
+const colores = ["rojo", "azul", "verde", "amarillo"]
+
+let comoQuiereJugar=prompt
+(`¿Cómo querés jugar?
+1- Juegar hasta perder
+2- Elegir rondas que desea jugar`)
+
+let rondas=0;
+let usuarioDice="";
+let simonDice= "";
+let cantidadRondas="";
+
+// el juego continúa hasta que erra la secuencia y muestra cantidad de rondas que sobrevivió
+if(comoQuiereJugar==="1"){
+  let usuario=true;
+  while(usuario){ 
+    let selectorColores = colores[Math.round(Math.random() * (colores.length - 1))]
+    colores.push(simonDice)
+    simonDice+=selectorColores;
+    alert(`Simón dice: \n${simonDice}`)
+    usuarioDice=prompt(`Usuario dice: `)
+      if(simonDice=== usuarioDice){
+        rondas++
+        alert(`Excelente!!! \nLlevás ganando ${rondas} rondas`)
+      } else {
+        alert(`Perdiste en la ronda ${rondas}`)
+        usuario=false;
+      }
+  }
 } else {
-  color = 'azul';
-}
-coloresSimon.push(color);
-selectorColor = Math.random();
-console.log(selectorColor);
-color = '';
-if (selectorColor <= 0.25) {
-  color = 'rojo';
-} else if (selectorColor > 0.25 && selectorColor <= 0.5) {
-  color = 'verde';
-} else if (selectorColor > 0.5 && selectorColor <= 0.75) {
-  color = 'amarillo';
-} else {
-  color = 'azul';
-}
-coloresSimon.push(color);
-console.log(coloresSimon);
-let i = 0;
-pront = pront('Color?');
-let ganamos = true;
-if (coloresSimon[i] !== pront) {
-  ganamos = false;
-}
-/*
-i = i+1;
-i += 1;
-i++;
-*/
-i++;
-pront = pront('Color?');
-if (coloresSimon[i] !== pront) {
-  ganamos = false;
-}
-i++;
-pront = pront('Color?');
-if (coloresSimon[i] !== pront) {
-  ganamos = false;
-}
-i++;
-pront = pront('Color?');
-if (coloresSimon[i] !== pront) {
-  ganamos = false;
-}
-i++;
-pront = pront('Color?');
-if (coloresSimon[i] !== pront) {
-  ganamos = false;
-}
-i++;
-pront = pront('Color?');
-if (coloresSimon[i] !== pront) {
-  ganamos = false;
-}
-if (ganamos === true) {
-  alert('Ganaste');
-} else {
-  alert('LOOSER');
-}
+    let usuario=true;
+    cantidadRondas=Number(prompt(`¿Cuántas rondas querés jugar?`));
+    while(usuario && cantidadRondas){ 
+      let selectorColores = colores[Math.round(Math.random() * (colores.length - 1))]
+      colores.push(simonDice)
+      simonDice+=selectorColores;  
+      alert(`Simón dice: \n${simonDice}`)
+      usuarioDice=prompt(`Usuario dice: `) 
+        if(simonDice=== usuarioDice){
+
+          alert(`Excelente!!! \nTe quedan ${cantidadRondas} rondas`)
+        } else {
+          alert(`No llegaste a cumplir las ${cantidadRondas} rondas`)
+          usuario=false;
+        }
+    }
+  }
+
+
+
+
+
+  // o  o el programa permite elegir al principio cuántas rondas se desea hacer, y mostrar un mensaje de victoria si se llega a esa cantidad de rondas sin errarle a la secuencia.
+  
+  
+  
+   
+
+

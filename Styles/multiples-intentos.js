@@ -8,7 +8,7 @@ let usuarioIngresado ="";
 let passwordIngresado ="";
 let intentos =0;
 
-while(intentos <3 && //condición de salida, que los intentos sean hasta 3 o acierte user y password
+while(intentos <=3 )&& //condición de salida, que los intentos sean hasta 3 o acierte user y password
     (usuarioIngresado !== user ||
     passwordIngresado !== password)) {
     intentos ++;
